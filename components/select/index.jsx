@@ -202,6 +202,7 @@ const Select = {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-show-arrow`]: showArrow,
+      [`${prefixCls}-rtl`]: showArrow,
     };
 
     let { optionLabelProp } = this.$props;

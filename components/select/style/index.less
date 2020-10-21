@@ -3,7 +3,9 @@
 @import '../../input/style/mixin';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
-
+.@{select-prefix-cls}-rtl {
+  direction: rtl;
+}
 .selection__clear() {
   position: absolute;
   top: 50%;

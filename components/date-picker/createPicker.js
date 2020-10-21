@@ -210,15 +210,22 @@ export default function createPicker(TheCalendar, props) {
             theme="filled"
           />
         ) : null;
-
+      const direction = this.configProvider.direction;
       const inputIcon = (suffixIcon &&
         (isValidElement(suffixIcon) ? (
           cloneElement(suffixIcon, {
-            class: `${prefixCls}-picker-icon`,
+            class: `${prefixCls}-picker-icon${direction === 'rtl' ? '-rtl' : ''}`,
           })
         ) : (
-          <span class={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-        ))) || <Icon type="calendar" class={`${prefixCls}-picker-icon`} />;
+          <span class={`${prefixCls}-picker-icon${direction === 'rtl' ? '-rtl' : ''}`}>
+            {suffixIcon}
+          </span>
+        ))) || (
+        <Icon
+          type="calendar"
+          class={`${prefixCls}-picker-icon${direction === 'rtl' ? '-rtl' : ''}`}
+        />
+      );
 
       const input = ({ value: inputValue }) => (
         <div>

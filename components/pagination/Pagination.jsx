@@ -51,17 +51,17 @@ export default {
   },
   methods: {
     getIconsProps(prefixCls) {
-      const prevIcon = (
+      var prevIcon = (
         <a class={`${prefixCls}-item-link`}>
           <Icon type="left" />
         </a>
       );
-      const nextIcon = (
+      var nextIcon = (
         <a class={`${prefixCls}-item-link`}>
           <Icon type="right" />
         </a>
       );
-      const jumpPrevIcon = (
+      var jumpPrevIcon = (
         <a class={`${prefixCls}-item-link`}>
           {/* You can use transition effects in the container :) */}
           <div class={`${prefixCls}-item-container`}>
@@ -70,7 +70,7 @@ export default {
           </div>
         </a>
       );
-      const jumpNextIcon = (
+      var jumpNextIcon = (
         <a class={`${prefixCls}-item-link`}>
           {/* You can use transition effects in the container :) */}
           <div class={`${prefixCls}-item-container`}>
@@ -79,6 +79,37 @@ export default {
           </div>
         </a>
       );
+      const direction = this.configProvider.direction;
+      if (direction === 'rtl') {
+        prevIcon = (
+          <a class={`${prefixCls}-item-link`}>
+            <Icon type="right" />
+          </a>
+        );
+        nextIcon = (
+          <a class={`${prefixCls}-item-link`}>
+            <Icon type="left" />
+          </a>
+        );
+        jumpPrevIcon = (
+          <a class={`${prefixCls}-item-link`}>
+            {/* You can use transition effects in the container :) */}
+            <div class={`${prefixCls}-item-container`}>
+              <Icon class={`${prefixCls}-item-link-icon`} type="double-right" />
+              <span class={`${prefixCls}-item-ellipsis`}>•••</span>
+            </div>
+          </a>
+        );
+        jumpNextIcon = (
+          <a class={`${prefixCls}-item-link`}>
+            {/* You can use transition effects in the container :) */}
+            <div class={`${prefixCls}-item-container`}>
+              <Icon class={`${prefixCls}-item-link-icon`} type="double-left" />
+              <span class={`${prefixCls}-item-ellipsis`}>•••</span>
+            </div>
+          </a>
+        );
+      }
       return {
         prevIcon,
         nextIcon,

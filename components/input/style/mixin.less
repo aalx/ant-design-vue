@@ -406,14 +406,26 @@
     }
   }
 
+  // .@{inputClass}-prefix when (@direction = ltr) {
+  //   left: @input-padding-horizontal-base + 1px;
+  // }
+
+  // .@{inputClass}-prefix when (@direction = rtl) {
+  //   right: @input-padding-horizontal-base + 1px;
+  // }
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
   }
-
   .@{inputClass}-suffix {
     right: @input-padding-horizontal-base + 1px;
   }
+  // .@{inputClass}-suffix when (@direction = ltr){
+  //   right: @input-padding-horizontal-base + 1px;
+  // }
 
+  // .@{inputClass}-suffix when (@direction = rtl){
+  //   left: @input-padding-horizontal-base + 1px;
+  // }
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
   }

@@ -27,6 +27,7 @@ const ConfigProvider = {
     locale: PropTypes.object,
     pageHeader: PropTypes.object,
     transformCellText: PropTypes.func,
+    direction: PropTypes.string,
   },
   provide() {
     const _self = this;
@@ -51,6 +52,7 @@ const ConfigProvider = {
       'locale',
       'pageHeader',
       'transformCellText',
+      'direction',
     ]),
   },
   methods: {

@@ -220,12 +220,14 @@ const Form = {
     } = this;
     const getPrefixCls = this.configProvider.getPrefixCls;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
+    const direction = this.configProvider.direction;
 
     const formClassName = classNames(prefixCls, {
       [`${prefixCls}-horizontal`]: layout === 'horizontal',
       [`${prefixCls}-vertical`]: layout === 'vertical',
       [`${prefixCls}-inline`]: layout === 'inline',
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     if (autoFormCreate) {
       warning(false, 'Form', '`autoFormCreate` is deprecated. please use `form` instead.');

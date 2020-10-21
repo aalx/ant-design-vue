@@ -29,6 +29,7 @@ export default {
     const { prefixCls: customizePrefixCls, size, $slots } = this;
     const getPrefixCls = this.configProvider.getPrefixCls;
     const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
+    const direction = this.configProvider.direction;
 
     // large => lg
     // small => sm
@@ -44,8 +45,9 @@ export default {
         break;
     }
     const classes = {
-      [`${prefixCls}`]: true,
+      [`${prefixCls}`]: direction === 'rtl',
       [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     };
     return <div class={classes}>{filterEmpty($slots.default)}</div>;
   },

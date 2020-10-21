@@ -434,6 +434,20 @@ export default {
       ) : null;
     },
     renderChildren(prefixCls) {
+      if (this.configProvider.direction === 'rtl') {
+        return [
+          this.renderWrapper(
+            prefixCls,
+            this.renderValidateWrapper(
+              prefixCls,
+              this.slotDefault,
+              this.renderHelp(prefixCls),
+              this.renderExtra(prefixCls),
+            ),
+          ),
+          this.renderLabel(prefixCls),
+        ];
+      }
       return [
         this.renderLabel(prefixCls),
         this.renderWrapper(
@@ -452,9 +466,11 @@ export default {
       const getPrefixCls = this.configProvider.getPrefixCls;
       const prefixCls = getPrefixCls('form', customizePrefixCls);
       const children = this.renderChildren(prefixCls);
+      const direction = this.configProvider.direction;
       const itemClassName = {
         [`${prefixCls}-item`]: true,
         [`${prefixCls}-item-with-help`]: this.helpShow,
+        [`${prefixCls}-item-rtl`]: direction === 'rtl',
       };
 
       return (

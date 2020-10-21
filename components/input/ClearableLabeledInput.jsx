@@ -4,6 +4,7 @@ import { getInputClassName } from './Input';
 import PropTypes from '../_util/vue-types';
 import { cloneElement } from '../_util/vnode';
 import { getComponentFromProp } from '../_util/props-util';
+import { ConfigConsumerProps } from '../config-provider';
 
 export function hasPrefixSuffix(instance) {
   return !!(
@@ -32,6 +33,9 @@ const ClearableLabeledInput = {
     addonAfter: PropTypes.any,
     className: PropTypes.string,
     readOnly: PropTypes.bool,
+  },
+  inject: {
+    configProvider: { default: () => ConfigConsumerProps },
   },
   methods: {
     renderClearIcon(prefixCls) {
@@ -64,12 +68,21 @@ const ClearableLabeledInput = {
     renderSuffix(prefixCls) {
       const { suffix, allowClear } = this.$props;
       if (suffix || allowClear) {
+        // if(this.configProvider.direction !=='rtl'){
         return (
           <span class={`${prefixCls}-suffix`}>
             {this.renderClearIcon(prefixCls)}
             {suffix}
           </span>
         );
+        // }else{
+        //   return (
+        //     <span class={`${prefixCls}-suffix-rtl`}>
+        //       {this.renderClearIcon(prefixCls)}
+        //       {suffix}
+        //     </span>
+        //   );
+        // }
       }
       return null;
     },
@@ -82,11 +95,13 @@ const ClearableLabeledInput = {
           props: { value: props.value },
         });
       }
+      var prefix = props.prefix ? <span class={`${prefixCls}-prefix`}>{props.prefix}</span> : null;
 
-      const prefix = props.prefix ? (
-        <span class={`${prefixCls}-prefix`}>{props.prefix}</span>
-      ) : null;
-
+      // if(this.configProvider.direction ==='rtl'){
+      //    prefix = props.prefix ? (
+      //     <span class={`${prefixCls}-prefix-rtl`}>{props.prefix}</span>
+      //   ) : null;
+      // }
       const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
         [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
         [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
