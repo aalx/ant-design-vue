@@ -20,20 +20,12 @@ An enterprise-class UI components based on Ant Design and Vue.
 
 [English](./README.md) | 简体中文
 
-<p align="center">
-  <b>Special thanks to the generous sponsorship by:</b>
-</p>
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a href="https://tipe.io/?ref=ant-design-vue" target="_blank">
-          <img width="120px" src="https://user-images.githubusercontent.com/1016365/34124854-48fafa06-e3e9-11e7-8c04-251055feebee.png">
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## 重要说明
+
+- 这个版本修改至 antd-vue-1.6.5 版本，主要为了适配阿语时的 rtl 布局。如果需要 rtl 布局，不要使用官网版本。
+- npm run compile 编译
+- npm pack 打包
+- 打包后得到
 
 ## 特性
 
